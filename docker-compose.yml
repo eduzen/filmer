@@ -1,0 +1,43 @@
+version: '3.9'
+
+volumes:
+  pgdata:
+  shell_history:
+  ipy_history:
+
+services:
+  filmer:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+      - shell_history:/root/hist
+      - ipy_history:/root/.ipython/
+    ports:
+      - "8000:8000"
+      - "3000:3000"
+    links:
+      - db
+    env_file:
+      - .env
+
+  db:
+    image: postgres:13-alpine
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+      - ./scripts/db/:/docker-entrypoint-initdb.d/
+    environment:
+      - POSTGRES_PASSWORD=$DJANGO_POSTGRES_PASSWORD
+
+  wdb:
+    image: kozea/wdb
+    profiles: ["debug"]
+    ports:
+      - "1984:1984"
+
+  adminer:
+    image: adminer:latest
+    profiles: ["debug"]
+    restart: always
+    ports:
+        - 8000:8000
