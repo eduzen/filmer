@@ -9,13 +9,13 @@ services:
   filmer:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
+    user: "1000:1000"
     volumes:
       - .:/code
       - shell_history:/root/hist
       - ipy_history:/root/.ipython/
     ports:
       - "8000:8000"
-      - "3000:3000"
     links:
       - db
     env_file:
