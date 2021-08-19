@@ -1,16 +1,29 @@
 set dotenv-load := true
+set positional-arguments
 
+dco-run := "docker-compose run --rm filmer"
+manage := "python manage.py"
 
-
-recipe-name:
-    echo 'This is a recipe!'
-
-# this is a comment
-another-recipe:
-    @echo 'This is another recipe.'
+default:
+  @just --list
 
 migrate:
-    docker-compose run --rm filmer python manage.py migrate
+    {{dco-run}} {{manage}} migrate
+
+makemigrations:
+    {{dco-run}} {{manage}} makemigrations
+
+dbshell:
+    {{dco-run}} {{manage}} dbshell
+
+createsuperuser:
+    {{dco-run}} {{manage}} createsuperuser
+
+foo:
+  echo $0
+
+admin-generator:
+    {{dco-run}} {{manage}} admin_generator
 
 up:
     docker-compose up -d filmer
