@@ -1,6 +1,8 @@
 from django.contrib.auth.models import Group, User
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import permissions, viewsets
+from rest_framework import filters, permissions, viewsets
+
+from omdb.api import search_movie
 
 from .models import Movie
 from .serializers import GroupSerializer, MovieSerializer, UserSerializer
@@ -34,10 +36,19 @@ class MovieViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
     permission_classes = [permissions.IsAuthenticated]
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
     filterset_fields = ["title"]
+    search_fields = ["@title"]
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        print("a", queryset.count())
+        if queryset.count() == 0:
+            print("ada", self.request.kwargs["title"])
+            movie = search_movie(self.request.kwargs["title"])
+            print(movie)
+            # @Movie.objects.create(**movie)
         return queryset
+
+
+"tt0116282"
+"https://yts.mx/api/v2/list_movies.json"
