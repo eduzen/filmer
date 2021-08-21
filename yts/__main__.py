@@ -1,4 +1,4 @@
-from api import search_movie
+from yts.api import search_movie
 
 
 def main():
