@@ -48,7 +48,3 @@ class MovieViewSet(viewsets.ReadOnlyModelViewSet):
             print(movie)
             # @Movie.objects.create(**movie)
         return queryset
-
-
-"tt0116282"
-"https://yts.mx/api/v2/list_movies.json"

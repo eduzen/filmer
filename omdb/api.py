@@ -12,12 +12,15 @@ from types import SimpleNamespace
 OMDB_URL = f"http://www.omdbapi.com/?apikey={OMDb_API_KEY}&i=tt3896198&"
 
 
+client = requests.Session()
+
+
 def get_movie_data(title, page=1, type="movie"):
     """
     Get movie data from OMDb API.
     """
     url = f"{OMDB_URL}&s={title}&page={page}&type={type}"
-    response = requests.get(url)
+    response = client.get(url)
     response.raise_for_status()
     data = response.json()
     return data
@@ -28,7 +31,7 @@ def get_tv_data(title, page=1, type="serie"):
     Get movie data from OMDb API.
     """
     url = f"{OMDB_URL}&s={title}&page={page}&type={type}"
-    response = requests.get(url)
+    response = client.get(url)
     response.raise_for_status()
     data = response.json()
     return data
@@ -39,7 +42,7 @@ def search_movie(title):
     Search for a movie and get its id.
     """
     url = f"{OMDB_URL}&s={title}"
-    response = requests.get(url)
+    response = client.get(url)
     response.raise_for_status()
     data = response.json()
     return data
