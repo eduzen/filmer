@@ -98,12 +98,34 @@ def parse_search_results(data):
     return movies
 
 
+def get_yts_torrent_info(imdb_id):
+    try:
+        r = requests.get(YTS_API, params={"query_term": imdb_id})
+    except requests.exceptions.ConnectionError:
+        logger.info("yts api no responde.")
+        return None
+    r.raise_for_status()
+
+    if r.status_code == 200:
+        torrent = r.json()  # <Dar url en lugar de hash.
+        try:
+            movie = torrent["data"]["movies"][0]["torrents"][0]
+            url = movie["url"]
+            seeds = movie["seeds"]
+            size = movie["size"]
+            quality = movie["quality"]
+
+            return url, seeds, size, quality
+
+        except (IndexError, KeyError):
+            logger.exception("There was a problem with yts api response")
+
 def main():
     title = input("Enter a movie title: ")
     data = search_movie(title)
     movies = parse_search_results(data)
     for movie in movies:
-        print(movie.title, movie.year)
+        print(movie.type, movie.title, movie.year)
 
 
 if __name__ == "__main__":
