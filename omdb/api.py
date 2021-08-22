@@ -54,7 +54,7 @@ def search_movie(title: str) -> dict:
     """
     Search for a movie and get all possible matches by OMDB api.
     """
-    url = f"{OMDB_URL}&s={title}"
+    url = f"{OMDB_URL}&s={title}&type={OmdbType.movie}"
     response = client.get(url)
     response.raise_for_status()
     data = response.json()
@@ -68,7 +68,6 @@ def _parse_movie(data):
     to_lower_case = {k.lower(): v for k, v in data.items()}
     try:
         movie = OmdbMovie(**to_lower_case)
-        print(movie.year)
         movie.year = movie.year.replace("-", "").strip()
     except ValidationError:
         raise Exception(f"Could not parse movie data: {to_lower_case}")
@@ -84,7 +83,7 @@ def parse_search_results(data: dict) -> list[OmdbMovie]:
     movies = []
     for movie in data["Search"]:
         movies.append(_parse_movie(movie))
-    return movies
+    return sorted(movies, key=lambda m: m.year, reverse=True)
 
 
 def get_movies(title: str) -> list[OmdbMovie]:
