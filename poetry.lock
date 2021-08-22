@@ -786,8 +786,8 @@ six = ">=1.10.0"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.9"
-content-hash = "573c61ea439e5d8b9a160305493f76b7455cbe578ffc10818b813dc93d33dd4a"
+python-versions = "3.8.11"
+content-hash = "4cf1c3d57b4fd8d5eecf5ae6d41ef184c3e60298b917aa12328250512ff57686"
 
 [metadata.files]
 appnope = [

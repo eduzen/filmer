@@ -1,4 +1,4 @@
-FROM python:3.9-slim-buster
+FROM python:3.9.6-slim-buster
 EXPOSE 80
 
     # python
@@ -37,6 +37,7 @@ RUN apt-get update && \
         curl \
         build-essential \
         postgresql-client \
+        libpq-dev \
         httpie && \
     apt-get autoremove -y && \
     apt-get autoclean -y && \
