@@ -1,4 +1,5 @@
 set dotenv-load := true
+set positional-arguments
 
 dco-run := "docker-compose run --rm filmer"
 manage := "python manage.py"
@@ -18,10 +19,15 @@ dbshell:
 shell:
   {{dco-run}} {{manage}} shell_plus --print-sql
 
-createsuperuser:
-  {{dco-run}} {{manage}} createsuperuser
+dockershell:
+  {{dco-run}} bash
 
-set positional-arguments
+show-urls:
+  {{dco-run}} {{manage}} show_urls
+
+createsuperuser email:
+  {{dco-run}} {{manage}} createsuperuser --email $1 --username $1
+
 admin-generator appname:
   {{dco-run}} {{manage}} admin_generator $1
 
@@ -30,5 +36,8 @@ up:
 
 logs:
   docker-compose logs -f filmer
+
+test:
+  {{dco-run}} pytest -s
 
 start: up logs

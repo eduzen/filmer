@@ -4,6 +4,11 @@ version = "0.1.0"
 description = "film info"
 authors = ["eduzen <eduardo.a.enriquez@gmail.com>"]
 
+[tool.pytest.ini_options]
+addopts = "-s"
+DJANGO_SETTINGS_MODULE = "filmer.settings"
+
+
 [tool.poetry.dependencies]
 python = "^3.9"
 Django = "^3.2.6"
@@ -22,6 +27,9 @@ requests = "^2.26.0"
 dj-database-url = "^0.5.0"
 psycopg2-binary = "^2.9.1"
 pydantic = "^1.8.2"
+python-dotenv = "^0.19.0"
+pytest-django = "^4.4.0"
+richer = "^0.1.6"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"

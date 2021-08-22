@@ -13,6 +13,9 @@ import os
 from pathlib import Path
 
 import dj_database_url
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +31,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-zbml-idfj_o3lc%7=@3wg*g*4u
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-
+SITE_ID = 1
 
 # Application definition
 DJANGO_APPS = [
@@ -39,6 +42,7 @@ DJANGO_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.postgres",
+    "django.contrib.sites",
 ]
 
 THIRD_PARTY_APPS = [
@@ -145,6 +149,36 @@ USE_L10N = True
 
 USE_TZ = True
 
+# LOGGING = {
+#     "version": 1,
+#     "disable_existing_loggers": False,
+#     "formatters": {"rich": {"datefmt": "[%X]"}},
+#     "handlers": {
+#         "console": {
+#             "class": "rich.logging.RichHandler",
+#             "formatter": "rich",
+#             "level": "DEBUG",
+#             # "rich_traceback": True,
+#             # "soft_wrap": True,
+#         }
+#     },
+#     "loggers": {"django": {"handlers": ["console"]}},
+# }
+
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "DEBUG",
+    },
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/

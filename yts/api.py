@@ -41,14 +41,14 @@ class Movie(BaseModel):
     yt_trailer_code: str
 
 
-def get_yts_movie(imdb_id: str) -> dict:
+def get_yts_movie(imdbid: str) -> dict:
     """
     Get movie details from YTS
-    :param imdb_id:
+    :param imdbid:
     :return:
     """
     url = urljoin(YTS_URL, "list_movies.json")
-    params = {"query_term": imdb_id}
+    params = {"query_term": imdbid}
     response = client.get(url, params=params)
     response.raise_for_status()
     return response.json()
@@ -62,11 +62,11 @@ def parse_movie(response: dict) -> dict:
         return {}
 
 
-def get_movie(imdb_id):
+def get_movie(imdbid):
     """
     Get movie details
-    :param imdb_id:
+    :param imdbid:
     :return:
     """
-    response = get_yts_movie(imdb_id)
+    response = get_yts_movie(imdbid)
     return parse_movie(response)

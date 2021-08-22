@@ -10,5 +10,5 @@ class MovieCastAdmin(admin.ModelAdmin):
 
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
-    list_display = ("id", "title", "imdb_id", "year", "data", "poster")
+    list_display = ("id", "title", "imdbid", "year", "data", "poster")
     raw_id_fields = ("cast",)

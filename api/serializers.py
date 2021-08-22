@@ -17,15 +17,17 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class MovieSerializer(serializers.HyperlinkedModelSerializer):
+    url = serializers.URLField(source="get_absolute_url", read_only=True)
+
     class Meta:
         model = Movie
-        fields = "__all__"
+        fields = ["url", "imdbid", "title", "year", "poster", "imdburl", "data"]
 
 
 class YtsMovieSerializer(serializers.HyperlinkedModelSerializer):
-    imdb_id = serializers.CharField(source="imdb_code")
+    imdbid = serializers.CharField(source="imdb_code")
     poster = serializers.URLField(source="background_image")
 
     class Meta:
         model = Movie
-        fields = ["imdb_id", "title", "year", "poster"]
+        fields = ["imdbid", "title", "year", "poster", "imdburl"]

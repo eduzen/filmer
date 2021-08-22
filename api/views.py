@@ -1,11 +1,12 @@
-from django.contrib.auth.models import Group, User
-from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework import filters, permissions, viewsets
+import logging
 
-from omdb.api import search_movie
+from django.contrib.auth.models import Group, User
+from rest_framework import permissions, viewsets
 
 from .models import Movie
 from .serializers import GroupSerializer, MovieSerializer, UserSerializer
+
+logger = logging.getLogger(__name__)
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -36,15 +37,17 @@ class MovieViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
     permission_classes = [permissions.IsAuthenticated]
-    filter_backends = [DjangoFilterBackend, filters.SearchFilter]
-    filterset_fields = ["title"]
-    search_fields = ["@title"]
+    lookup_field = "imdbid"
 
     def get_queryset(self):
-        queryset = super().get_queryset()
-        if queryset.count() == 0:
-            print("ada", self.request.kwargs["title"])
-            movie = search_movie(self.request.kwargs["title"])
-            print(movie)
-            # @Movie.objects.create(**movie)
-        return queryset
+        if title := self.request.query_params.get("search"):
+            return Movie.omdb.search(title)
+        else:
+            return super().get_queryset()
+
+    def get_object(self):
+        if lookup_field := self.kwargs.get(self.lookup_field):
+            logger.debug("debug %s", lookup_field)
+            return Movie.yts.search(lookup_field)
+
+        return super().get_object()

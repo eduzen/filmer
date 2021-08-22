@@ -1,12 +1,11 @@
-from api import parse_search_results, search_movie
+from api import get_movies
 
 
 def main():
     title = input("Enter a movie title: ")
-    data = search_movie(title)
-    movies = parse_search_results(data)
+    movies = get_movies(title)
     for movie in movies:
-        print(vars(movie))
+        print(movie)
 
 
 if __name__ == "__main__":

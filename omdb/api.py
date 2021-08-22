@@ -1,18 +1,31 @@
-import os
+from enum import Enum
 
 import requests
+from pydantic import BaseModel, ValidationError
 
-try:
-    from filmer.settings import OMDb_API_KEY
-except ModuleNotFoundError:
-    OMDb_API_KEY = os.getenv("OMDb_API_KEY", "fake")
-
-from types import SimpleNamespace
+from filmer.settings import OMDb_API_KEY
 
 OMDB_URL = f"http://www.omdbapi.com/?apikey={OMDb_API_KEY}&i=tt3896198&"
 
 
 client = requests.Session()
+
+
+class OmdbType(str, Enum):
+    movie = "movie"
+    serie = "series"
+    episode = "episode"
+
+
+class OmdbMovie(BaseModel):
+    title: str
+    year: str
+    imdbid: str
+    type: OmdbType
+    poster: str
+
+    class Config:
+        use_enum_values = True
 
 
 def get_movie_data(title, page=1, type="movie"):
@@ -37,9 +50,9 @@ def get_tv_data(title, page=1, type="serie"):
     return data
 
 
-def search_movie(title):
+def search_movie(title: str) -> dict:
     """
-    Search for a movie and get its id.
+    Search for a movie and get all possible matches by OMDB api.
     """
     url = f"{OMDB_URL}&s={title}"
     response = client.get(url)
@@ -48,20 +61,36 @@ def search_movie(title):
     return data
 
 
-def parse_movie(data):
+def _parse_movie(data):
     """
     Parse movie data into a Movie object.
     """
-    movie = SimpleNamespace(**{k.lower(): v for k, v in data.items()})
+    to_lower_case = {k.lower(): v for k, v in data.items()}
+    try:
+        movie = OmdbMovie(**to_lower_case)
+        print(movie.year)
+        movie.year = movie.year.replace("-", "").strip()
+    except ValidationError:
+        raise Exception(f"Could not parse movie data: {to_lower_case}")
+    return movie
+
     return movie
 
 
-def parse_search_results(data):
+def parse_search_results(data: dict) -> list[OmdbMovie]:
     """
     Parse search results into a list of Movie objects.
     """
     movies = []
-    print(data)
     for movie in data["Search"]:
-        movies.append(parse_movie(movie))
+        movies.append(_parse_movie(movie))
+    return movies
+
+
+def get_movies(title: str) -> list[OmdbMovie]:
+    """
+    Get all movies by title.
+    """
+    raw_data = search_movie(title)
+    movies = parse_search_results(raw_data)
     return movies
