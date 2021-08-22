@@ -25,10 +25,10 @@ django-health-check = "^3.16.4"
 django-filter = "^2.4.0"
 requests = "^2.26.0"
 dj-database-url = "^0.5.0"
-psycopg2-binary = "^2.9.1"
 pydantic = "^1.8.2"
 python-dotenv = "^0.19.0"
 pytest-django = "^4.4.0"
+psycopg2 = "^2.9.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"

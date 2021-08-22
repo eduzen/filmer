@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/github_actions
-      DJANGO_CONFIGURATION: Test
     strategy:
       max-parallel: 4
       matrix:
