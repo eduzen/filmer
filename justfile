@@ -19,6 +19,12 @@ dbshell:
 shell:
   {{dco-run}} {{manage}} shell_plus --print-sql
 
+new-app appname:
+  {{dco-run}} {{manage}} startapp $1
+
+restart:
+  docker-compose rm -sf filmer && docker-compose up -d filmer && docker-compose logs -f filmer
+
 dockershell:
   {{dco-run}} bash
 

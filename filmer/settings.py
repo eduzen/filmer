@@ -69,6 +69,7 @@ HEALTHCHECKS_APPS = [
 
 FILMER_APPS = [
     "api",
+    "ui",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + HEALTHCHECKS_APPS + FILMER_APPS
@@ -149,23 +150,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# LOGGING = {
-#     "version": 1,
-#     "disable_existing_loggers": False,
-#     "formatters": {"rich": {"datefmt": "[%X]"}},
-#     "handlers": {
-#         "console": {
-#             "class": "rich.logging.RichHandler",
-#             "formatter": "rich",
-#             "level": "DEBUG",
-#             # "rich_traceback": True,
-#             # "soft_wrap": True,
-#         }
-#     },
-#     "loggers": {"django": {"handlers": ["console"]}},
-# }
-
-
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -182,15 +166,15 @@ LOGGING = {
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
 STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "assets"
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-STATIC_ROOT = BASE_DIR / "static"
 
 REST_FRAMEWORK = {
     "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
@@ -199,3 +183,4 @@ REST_FRAMEWORK = {
 }
 
 OMDb_API_KEY = os.getenv("OMDb_API_KEY", "fake")
+TMDB_API_KEY = os.getenv("TMDB_API_KEY", "fake")
