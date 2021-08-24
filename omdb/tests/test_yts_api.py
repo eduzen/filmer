@@ -13,8 +13,8 @@ def response_fixure():
         yield json.load(f)
 
 
-def test_search_movie(mocker, response_fixure):
-    mocker.patch("omdb.api.requests.get", return_value=response_fixure)
+@pytest.mark.vcr()
+def test_search_movie():
     movies = get_movies("Star wars")
 
     assert len(movies) == 10

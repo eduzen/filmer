@@ -15,7 +15,7 @@ jobs:
     env:
       DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/github_actions
       DJANGO_SECRET_KEY: iy78m@(4lt+ad!ntn6u3v!9oly(pd$e$vch85suqs2_yl17cm2
-
+      OMDb_API_KEY: ${{ secrets.OMDb_API_KEY }}
     strategy:
       max-parallel: 4
       matrix:

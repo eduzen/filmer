@@ -1,0 +1,67 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.26.0
+    method: GET
+    uri: http://www.omdbapi.com/?apikey=eaf57636&i=tt3896198&&s=Star%20wars&type=movie
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA62VW4+jNhhA/4rl58zE3HJ7WmYhEavYLIlDAlW1osQFzC0FzzJ4tf+9ynSnmiSj
+        SlF58KMlH5/z2T/glkVNnMLFbz8gzUTB4AJuRdSAfdS0cAQDFjVwAZX5dApHMCuPfzgWXEAhEJpO
+        psYcjiDtT+ddZf09Y3AEv9atYOc9qRCndjEel48lO2bRQ1RGsq4e47ocZ2WUsHaMx9g3noj0i0DF
+        Hea5wKqtu1uEAjXQ1ntbC3ksApnm4QprgTSVcI/VQ273h3z5V7w6Mu/g90TmHeaeQST+9PjNV75t
+        DxpCj/yUwJ+jD6gWwD5lbX1kwAcPgKYM2OUpaxjYiibLWQueojh/jz5D1+gzNJnpA6AH5U4h1oYT
+        KxFYphnOECI8LNc0McjKEaFFspDvDEJ3ukttNCC6Ax7AhonnpgL1n0CkDHxhx+wCW7vBnihzNAC2
+        uw8LzJdZIBOB6U6Sz2fjjlzTXCEUi7AkKaaxJDRHrpUrN9jU7F0r71zv093Yzi/ny7qJGTC7KGfV
+        u9BVpBiX2Ko+m+nzyRDY1JSuZUtimRIXxtN5RdVTdciXIqRJh62dgmkiibTvxHqD+ppGlahLgFkV
+        xey9zPn8Sqaiovkr6v9umG5SwuOO7D2BV1/K14ZLr1/vbTWQjnAtv8T0yMneQaFlqsPJdJx/Iv7O
+        qoS9VbzNRPpeJzJuwJXpZAidhMY6prFGqGe4y2udcefSBBHu6MS8Hww8AFOIKM7fsD4XdcUuOkXq
+        R2BDGMXnPlWMAnUnQr4pwwwhLP1iTRMdc1u41NaI3Bmh5ReY7owbo9aud2miEZ7cP55vKa+jVlw9
+        SSpSrj4h1VCnmjaETMw9Bcv4hfBEJ8rtbBKZdJgHOpbOvTIPv4g2Wfta6Tbvu6jIWXNBNv+IbDaI
+        zYK/Jmo5Iiy9DvcIYdV+WdOCu9QTIfU5WdkqOee6cl6ubbpWLglNXrD13zbrol4AE/x7A2Ar6qa/
+        YJxdMmrT6Wyi64O8rFgl1NHIeRyLj+xhxaVeT+jtP/n7CIpaRMWGtc+FaOEC6to5sw1rT3XVns9F
+        m2cGf/4NRIO/jywJAAA=
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - MISS
+      CF-RAY:
+      - 68403aad5fecfa40-AMS
+      Cache-Control:
+      - public, max-age=86400
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 24 Aug 2021 23:06:06 GMT
+      Expires:
+      - Wed, 25 Aug 2021 00:06:06 GMT
+      Last-Modified:
+      - Tue, 24 Aug 2021 23:06:06 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - '*, Accept-Encoding'
+      X-AspNet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+version: 1

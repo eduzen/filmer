@@ -1,0 +1,141 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.26.0
+    method: GET
+    uri: https://yts.am/api/v2/list_movies.json?query_term=tt3748528
+  response:
+    body:
+      string: ''
+    headers:
+      CF-RAY:
+      - 68403ab02b1700a7-AMS
+      Cache-Control:
+      - max-age=3600
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 24 Aug 2021 23:06:06 GMT
+      Expect-CT:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Expires:
+      - Wed, 25 Aug 2021 00:06:06 GMT
+      Location:
+      - https://yts.mx/api/v2/list_movies.json?query_term=tt3748528
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=fQJL5NDHQ9KZg9GXpboMhCSQXRRRRo86Tul42EJlIG7n%2BGZnVL%2FlkO9el7N3VTLj0V6HPUSf0N%2BUQZP32pkb%2B52BH7tWATfaMcPgym6c75%2FUeNCCPsu8sRQ%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      alt-svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
+        ma=86400
+    status:
+      code: 301
+      message: Moved Permanently
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.26.0
+    method: GET
+    uri: https://yts.mx/api/v2/list_movies.json?query_term=tt3748528
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA+yXW2/bNhTHvwqhpw2wbJG662myZBfDMGxrCwzDXAi0xThcKFLjpYlb5LvvUHbi
+        3tI1W9CnPiSQDg/P+Z8fKR76bWAstc4EVaCugtnprRuYMXTPwPqbY/qArqlBxu12YL5wAvx6amlQ
+        vQ0G9ZqzbqectEGFZ4HgA4cnEs2CEQJ00g1bpqehyRUS/fk24H1QZXEBRqcFJLm0djTVZrFZHKyZ
+        DzebxdF5s9Bq71ioJAtpCNp0eE21gSelDyGJcAZS+NBvQUHv1Vob50mRkgLsllvhbc99CPSLZBWq
+        0QuIgX6HGPAEMe7cOib3gpvLL3UXSu7/xRd95/V975kK552/oJQDo9rDw9ks0NRynySfF/ACfPkA
+        1eA4ngV7JvVEMqh3lisJM+v+NZPWaQbPL3Y8XPPgFWR2w0BBdhXUQiCh1JWB/8aiC6WRvWToOdsy
+        ISAEonvKJYx462oYuWYI1hzeDkiAKonUxTTGbrixTO6YN1Ak2TVsjJFpdM3oqORscmoZtZcTkDnQ
+        AV+KRmUM3wrm/a4k7CPEJeLWoJ2CtNpNhSBukJM79Zpp1s/OChHI59QHGhxoNMwi5eAPZKOeGUhP
+        LYxxSAE2qxBIpGKaPwoqzX297wp7Ce8XzjO7rw0gw9ueCnpzQFJdI8AMEt2ojlpPn8AcbRwsUvL8
+        QCVqnBADlX4RQMpO89FX0sFnIr5x/zrczUGq0XDzjffX4X2wndWUC6bvzt11r34S6/rHm/4PGAcp
+        e3dsH8z7DyPt7o6z4NdnIY7BuKW7q72GxtF3fDg6f9wGqAEG0AYmD/NBW+jgLO38YblZnIPN/xr3
+        n4jeKc33XNJPd5v/nMYMVIhuWsgnqGKKFk7RTvEH1nM3PFmCY7j3Mgiq9+zJEkzR3ovvLxTs7nYB
+        vU7D5jteAh5q/SenzaJX11Io2m8WybJpY1ysSLqKkiarY9Iscd02Td3GJMtXRV1nZB0vIcUlnbr4
+        I2b87ajg1jfJuPUaD6PXuxVOU9/wDWM9CPYteWRMwyMBI3/jncg8StEzH8Qbuu3B+rZMgAXOozwu
+        p3sS69zoy2C9nxHhPIySMCIowlVcVlEafODVOclvIGFS4qgoyyS9nT0O1mq9bMt4CYUTUtRpW6xS
+        3DS4bIumTaJ0RaKyBRjvwPryGWdYOYnGh3Fl5T0uT+7EC6qZJwX6+UNiGBLnRV5k0UPE4hAXCMdV
+        WlRJ/iCxoiwSXJL8kcTWTblM/G5J2iRdr8tlSlZZ1JIC53mbFssmzeOmidozsUfMOBOD5fwcMpxE
+        Z2b/f48diWVVklUEf45YissCP5IYqVv4eGLYJSXO27JexsV6iVfZKoPSU/j2VhA2n1bqROwRM87E
+        CM4+RywnZ2DJPbBsHhUfA8vgR0GcRqT85BYjURhlIQFgpEpIRbKHgKVlHCdRmWS3r55oq766nQU/
+        DOz4c8ow7Q/i010/I+CUxVk+e3fgDRy3kKxZvYTgdOQdDPj7wHQwsRu2c9MF9BgjiNBggtvbfwAA
+        AP//AwCzeZM56A0AAA==
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - '*'
+      Age:
+      - '0'
+      CF-Cache-Status:
+      - DYNAMIC
+      CF-RAY:
+      - 68403ab0bad20b5f-AMS
+      Cache-Control:
+      - max-age=3600, no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Tue, 24 Aug 2021 23:06:07 GMT
+      Expect-CT:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Expires:
+      - Wed, 25 Aug 2021 00:06:07 GMT
+      NEL:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Pragma:
+      - no-cache
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=UYjmG%2BlEpGAHzJoZWRBVGf3GQs5yYRnbeeECZ85jt%2FxXqwf4AoS9eYjp7QPgs05U9LgA7b1UITtR%2FYqGrYBNly7xuy85zDCAtX4aA7u9evM6K1GxkpOJuQ%3D%3D"}],"group":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - PHPSESSID=mrmqk6csfp6k0hmbjukme1qiin; path=/
+      Strict-Transport-Security:
+      - max-age=0; includeSubDomains; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 varnish (Varnish/5.2)
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Varnish:
+      - '135720'
+      alt-svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
+        ma=86400
+    status:
+      code: 200
+      message: OK
+version: 1
