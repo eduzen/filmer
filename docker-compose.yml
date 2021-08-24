@@ -35,8 +35,10 @@ services:
       - "1984:1984"
 
   filmer:
-    build: .
-    # command: python manage.py runserver 0.0.0.0:8000
+    build:
+      context: .
+      target: prod
+    command: python manage.py runserver 0.0.0.0:8000
     # user: "1000:1000"
     volumes:
       - .:/code
@@ -49,4 +51,3 @@ services:
       - db
     env_file:
       - .env
-
