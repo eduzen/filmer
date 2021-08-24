@@ -46,4 +46,7 @@ logs:
 test:
   {{dco-run}} pytest -s
 
+new-secret-key:
+  {{dco-run}} {{manage}} generate_secret_key
+
 start: up logs

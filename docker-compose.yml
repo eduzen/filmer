@@ -6,6 +6,12 @@ volumes:
   ipy_history:
 
 services:
+  nginx-proxy:
+    image: nginx:alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
 
   adminer:
     image: adminer:latest
@@ -30,15 +36,17 @@ services:
 
   filmer:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    # command: python manage.py runserver 0.0.0.0:8000
     # user: "1000:1000"
     volumes:
       - .:/code
       - shell_history:/root/hist
       - ipy_history:/root/.ipython/profile_default
-    ports:
-      - "8000:8000"
+    expose:
+      - 81
+      - 80
     links:
       - db
     env_file:
       - .env
+
