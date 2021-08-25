@@ -185,4 +185,5 @@ REST_FRAMEWORK = {
 OMDb_API_KEY = os.getenv("OMDb_API_KEY", "fake")
 TMDB_API_KEY = os.getenv("TMDB_API_KEY", "fake")
 
-LOGIN_REDIRECT_URL = "/api/api-auth/login/?next=/"
+LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = "/api/api-auth/login/"
