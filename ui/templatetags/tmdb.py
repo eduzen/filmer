@@ -42,3 +42,8 @@ def imdb_link(movie):
 @register.simple_tag
 def release_date(movie):
     return mark_safe(f"<p>{movie['release_date']}</p>")
+
+
+@register.simple_tag
+def get_api_view(movie):
+    return mark_safe(f"<a href='/api/v1/movies/{movie['imdb_id']}' class='btn btn-primary'>API</a>")
