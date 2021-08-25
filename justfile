@@ -37,6 +37,9 @@ createsuperuser email:
 admin-generator appname:
   {{dco-run}} {{manage}} admin_generator $1
 
+collectstatic:
+  {{dco-run}} {{manage}} collectstatic --noinput
+
 up:
   docker-compose up -d filmer
 

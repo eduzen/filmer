@@ -43,5 +43,5 @@ jobs:
     - name: Run Django Check
       run: poetry run python manage.py check
 
-    - name: Run Django Check
+    - name: Run Django Test
       run: poetry run pytest

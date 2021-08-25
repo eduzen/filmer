@@ -14,6 +14,8 @@ jobs:
   push:
 
     runs-on: ubuntu-latest
+    env:
+      DJANGO_SECRET_KEY: iy78m@(4lt+ad!ntn6u3v!9oly(pd$e$vch85suqs2_yl17cm2
     if: github.event_name == 'push'
 
     steps:
