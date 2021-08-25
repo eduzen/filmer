@@ -14,13 +14,24 @@ jobs:
   push:
 
     runs-on: ubuntu-latest
-    env:
-      DJANGO_SECRET_KEY: iy78m@(4lt+ad!ntn6u3v!9oly(pd$e$vch85suqs2_yl17cm2
+
     if: github.event_name == 'push'
 
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
+
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: |
+            eduzen/filmer
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=sha
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1.5.1
@@ -35,10 +46,16 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2.7.0
         with:
-          push: true
-          tags: eduzen/filmer:latest
-          file: ./Dockerfile
+          pull: true
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          context: .
           target: prod
+          build-args: |
+            DJANGO_SECRET_KEY=${{ secrets.DOCKER_SECRET_KEY }}
+          cache-from: type=registry,ref=eduzen/filmer:latest
+          cache-to: type=inline
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
