@@ -50,7 +50,7 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          context: .
+          file: ./Dockerfile
           target: prod
           build-args: |
             DJANGO_SECRET_KEY=${{ secrets.DOCKER_SECRET_KEY }}
