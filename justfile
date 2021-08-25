@@ -1,6 +1,7 @@
 set dotenv-load := true
 set positional-arguments
 
+dco := "docker-compose"
 dco-run := "docker-compose run --rm filmer"
 manage := "python manage.py"
 
@@ -22,8 +23,10 @@ shell:
 new-app appname:
   {{dco-run}} {{manage}} startapp $1
 
-restart:
-  docker-compose rm -sf filmer && docker-compose up -d filmer && docker-compose logs -f filmer
+remove-filmer:
+  {{dco}} rm -sf filmer
+
+restart: remove-filmer start
 
 dockershell:
   {{dco-run}} bash
@@ -41,15 +44,22 @@ collectstatic:
   {{dco-run}} {{manage}} collectstatic --noinput
 
 up:
-  docker-compose up -d filmer
+  {{dco}} up -d filmer
 
 logs:
-  docker-compose logs -f filmer
+  {{dco}} logs -f filmer
 
-test:
-  {{dco-run}} pytest -s
+test params:
+  {{dco-run}} pytest $1
 
 new-secret-key:
   {{dco-run}} {{manage}} generate_secret_key
+
+clean-python:
+  #!/usr/bin/env python3
+  import pathlib
+  current_path = pathlib.Path(".").parent
+  [p.unlink() for p in current_path.rglob('*.py[co]')]
+  [p.rmdir() for p in current_path.rglob('__pycache__')]
 
 start: up logs

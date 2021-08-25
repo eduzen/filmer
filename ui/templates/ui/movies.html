@@ -1,0 +1,7 @@
+<div class="row">
+  {% for trend in trends %}
+    <div class="col-md-3">
+      {% include "ui/movie.html" with movie=trend %}
+    </div>
+  {% endfor %}
+</div>

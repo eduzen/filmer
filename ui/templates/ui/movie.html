@@ -1,0 +1,17 @@
+{% load tmdb %}
+
+{% if movie %}
+  <div class="card">
+
+    {% poster movie %}
+    <div class="card-body">
+      {% title movie %}
+      {% overview movie %}
+      {% genres movie %}
+      {% release_date movie %}
+      {% imdb_link movie %}
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+
+  </div>
+{% endif %}

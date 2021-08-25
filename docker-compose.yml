@@ -6,13 +6,6 @@ volumes:
   ipy_history:
 
 services:
-  nginx-proxy:
-    image: nginx:alpine
-    ports:
-      - 80:80
-    volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
-
   adminer:
     image: adminer:latest
     profiles: ["debug"]
@@ -35,6 +28,7 @@ services:
       - "1984:1984"
 
   filmer:
+    tty: true
     build:
       context: .
       target: prod
@@ -46,10 +40,17 @@ services:
       - .:/code
       - shell_history:/root/hist
       - ipy_history:/root/.ipython/profile_default
-    expose:
-      - 81
-      - 80
+    ports:
+      - 8000:8000
     links:
       - db
     env_file:
       - .env
+
+  nginx-proxy:
+    profiles: ["prod"]
+    image: nginx:alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf

@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 from tmdb import api
 
@@ -14,5 +13,6 @@ from tmdb import api
 def index(request):
     # latest_question_list = Question.objects.order_by('-pub_date')[:5]
     # context = {'latest_question_list': latest_question_list}
+
     trends = api.tmdb_trending_movies()
-    return render(request, 'ui/base.html', {"trends": trends})
+    return render(request, "ui/base.html", {"trends": trends})
