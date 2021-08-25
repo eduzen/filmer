@@ -1,7 +1,7 @@
 FROM python:3.9.6-slim-buster as prod
 EXPOSE 80
 
-ARG DOCKER_SECRET_KEY
+ARG DJANGO_SECRET_KEY
 
     # python
 ENV PYTHONUNBUFFERED=1 \
