@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/github_actions
-      DJANGO_SECRET_KEY: ${{ secrets.DOCKER_SECRET_KEY }}
+      DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
       OMDb_API_KEY: ${{ secrets.OMDb_API_KEY }}
     strategy:
       max-parallel: 4
