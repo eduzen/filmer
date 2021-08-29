@@ -44,4 +44,4 @@ jobs:
       run: poetry run python manage.py check
 
     - name: Run Django Test
-      run: poetry run pytest
+      run: poetry run pytest --vcr-record=none

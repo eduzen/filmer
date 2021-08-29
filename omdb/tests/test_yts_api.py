@@ -16,5 +16,4 @@ def response_fixure():
 @pytest.mark.vcr()
 def test_search_movie():
     movies = get_movies("Star wars")
-
     assert len(movies) == 10

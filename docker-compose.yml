@@ -29,12 +29,14 @@ services:
 
   filmer:
     tty: true
-    #image: eduzen/filmer:main
+    image: eduzen/filmer:main
     build:
        context: .
        target: prod
+       cache_from:
+        - eduzen/filmer:main
        args:
-         - DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
+        - DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
     command: python manage.py runserver 0.0.0.0:8000
     # user: "1000:1000"
     volumes:

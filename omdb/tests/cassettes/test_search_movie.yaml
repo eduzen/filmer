@@ -64,4 +64,52 @@ interactions:
     status:
       code: 200
       message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.26.0
+    method: GET
+    uri: http://www.omdbapi.com/?apikey=fake&i=tt3896198&&s=Star+wars&type=movie
+  response:
+    body:
+      string: '{"Response":"False","Error":"Invalid API key!"}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      CF-Cache-Status:
+      - MISS
+      CF-RAY:
+      - 68672a315efe41ae-AMS
+      Cache-Control:
+      - public, max-age=86400
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '47'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Sun, 29 Aug 2021 16:30:35 GMT
+      Expires:
+      - Sun, 29 Aug 2021 17:30:35 GMT
+      Last-Modified:
+      - Sun, 29 Aug 2021 16:30:35 GMT
+      Server:
+      - cloudflare
+      Vary:
+      - '*, Accept-Encoding'
+      X-AspNet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+    status:
+      code: 401
+      message: Unauthorized
 version: 1

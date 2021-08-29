@@ -3,10 +3,9 @@ from enum import Enum
 import requests
 from pydantic import BaseModel, ValidationError
 
-from filmer.settings import OMDb_API_KEY
+from filmer.settings import OMDB_API_KEY
 
-OMDB_URL = f"http://www.omdbapi.com/?apikey={OMDb_API_KEY}&i=tt3896198&"
-
+OMDB_URL = f"http://www.omdbapi.com/"
 
 client = requests.Session()
 
@@ -32,6 +31,14 @@ def get_movie_data(title, page=1, type="movie"):
     """
     Get movie data from OMDb API.
     """
+    query_params = {
+        "apikey": OMDB_API_KEY,
+        "t": title,
+        "page": page,
+        "type": type,
+        "i": "tt3896198",
+    }
+    response = client.get(OMDB_URL, params=query_params)
     url = f"{OMDB_URL}&s={title}&page={page}&type={type}"
     response = client.get(url)
     response.raise_for_status()
@@ -43,8 +50,14 @@ def get_tv_data(title, page=1, type="serie"):
     """
     Get movie data from OMDb API.
     """
-    url = f"{OMDB_URL}&s={title}&page={page}&type={type}"
-    response = client.get(url)
+    query_params = {
+        "apikey": OMDB_API_KEY,
+        "i": "tt3896198",
+        "s": title,
+        "page": page,
+        "type": type,
+    }
+    response = client.get(OMDB_URL, params=query_params)
     response.raise_for_status()
     data = response.json()
     return data
@@ -54,8 +67,13 @@ def search_movie(title: str) -> dict:
     """
     Search for a movie and get all possible matches by OMDB api.
     """
-    url = f"{OMDB_URL}&s={title}&type={OmdbType.movie}"
-    response = client.get(url)
+    query_params = {
+        "apikey": OMDB_API_KEY,
+        "i": "tt3896198",
+        "s": title,
+        "type": OmdbType.movie,
+    }
+    response = client.get(OMDB_URL, params=query_params)
     response.raise_for_status()
     data = response.json()
     return data
@@ -71,8 +89,6 @@ def _parse_movie(data):
         movie.year = movie.year.replace("-", "").strip()
     except ValidationError:
         raise Exception(f"Could not parse movie data: {to_lower_case}")
-    return movie
-
     return movie
 
 

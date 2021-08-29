@@ -182,7 +182,7 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 10,
 }
 
-OMDb_API_KEY = os.getenv("OMDb_API_KEY", "fake")
+OMDB_API_KEY = os.getenv("OMDB_API_KEY", "fake")
 TMDB_API_KEY = os.getenv("TMDB_API_KEY", "fake")
 
 LOGIN_REDIRECT_URL = "/"
