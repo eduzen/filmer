@@ -21,7 +21,7 @@ tests = ["pytest", "pytest-asyncio", "mypy (>=0.800)"]
 name = "atomicwrites"
 version = "1.4.0"
 description = "Atomic file writes."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -29,7 +29,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 name = "attrs"
 version = "21.2.0"
 description = "Classes Without Boilerplate"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -92,7 +92,7 @@ colorama = {version = "*", markers = "platform_system == \"Windows\""}
 name = "colorama"
 version = "0.4.4"
 description = "Cross-platform colored terminal text."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -294,7 +294,7 @@ python-versions = ">=3.5"
 name = "iniconfig"
 version = "1.1.1"
 description = "iniconfig: brain-dead simple config-ini parsing"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -400,7 +400,7 @@ traitlets = "*"
 name = "multidict"
 version = "5.1.0"
 description = "multidict implementation"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -408,7 +408,7 @@ python-versions = ">=3.6"
 name = "packaging"
 version = "21.0"
 description = "Core utilities for Python packages"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -462,7 +462,7 @@ python-versions = "*"
 name = "pluggy"
 version = "0.13.1"
 description = "plugin and hook calling mechanisms for python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -500,7 +500,7 @@ python-versions = "*"
 name = "py"
 version = "1.10.0"
 description = "library with cross-python path, ini-parsing, io, code, log facilities"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -539,7 +539,7 @@ python-versions = ">=3.5"
 name = "pyparsing"
 version = "2.4.7"
 description = "Python parsing module"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
@@ -547,7 +547,7 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 name = "pytest"
 version = "6.2.4"
 description = "pytest: simple powerful testing with Python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -631,7 +631,7 @@ termcolor = ">=1.1.0"
 name = "pytest-vcr"
 version = "1.0.2"
 description = "Plugin for managing VCR.py cassettes"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -689,7 +689,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 name = "pyyaml"
 version = "5.4.1"
 description = "YAML parser and emitter for Python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 
@@ -713,7 +713,7 @@ use_chardet_on_py3 = ["chardet (>=3.0.2,<5)"]
 
 [[package]]
 name = "sentry-sdk"
-version = "1.3.1"
+version = "1.4.2"
 description = "Python client for Sentry (https://sentry.io)"
 category = "main"
 optional = false
@@ -798,7 +798,7 @@ requests = "*"
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
@@ -853,7 +853,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 name = "vcrpy"
 version = "4.1.1"
 description = "Automatically mock your HTTP interactions to simplify and speed up testing"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5"
 
@@ -901,7 +901,7 @@ brotli = ["brotli"]
 name = "wrapt"
 version = "1.12.1"
 description = "Module for decorators, wrappers and monkey patching."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -921,7 +921,7 @@ six = ">=1.10.0"
 name = "yarl"
 version = "1.6.3"
 description = "Yet another URL library"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -957,7 +957,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8.11"
-content-hash = "bc507793e89374896b9023c3c239dc8778542d6695a75978367c3f85608b1632"
+content-hash = "89b7e625c8c178c50f62b324f43a4534f853d9890acbb0e2762b1374617b58a6"
 
 [metadata.files]
 appnope = [
@@ -1456,8 +1456,8 @@ requests = [
     {file = "requests-2.26.0.tar.gz", hash = "sha256:b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"},
 ]
 sentry-sdk = [
-    {file = "sentry-sdk-1.3.1.tar.gz", hash = "sha256:ebe99144fa9618d4b0e7617e7929b75acd905d258c3c779edcd34c0adfffe26c"},
-    {file = "sentry_sdk-1.3.1-py2.py3-none-any.whl", hash = "sha256:f33d34c886d0ba24c75ea8885a8b3a172358853c7cbde05979fc99c29ef7bc52"},
+    {file = "sentry-sdk-1.4.2.tar.gz", hash = "sha256:683e2f677d518b6a203785f5a6c27d3a6b48cca8293d43cc7efc7815ea4dada5"},
+    {file = "sentry_sdk-1.4.2-py2.py3-none-any.whl", hash = "sha256:ffb7b1f7c9a2ca771066aa4b502756e1ef08aff246de23ffecaa5d2af1533a62"},
 ]
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
