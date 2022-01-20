@@ -1,4 +1,4 @@
-FROM python:3.9.6-slim-buster as prod
+FROM python:3.10.2-slim-buster as prod
 EXPOSE 80
 
 ARG DJANGO_SECRET_KEY
